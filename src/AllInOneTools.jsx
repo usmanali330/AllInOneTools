@@ -423,8 +423,10 @@ function Notepad() {
       </div>
     </div>
   );
-}
-function Converter() {
+}import { useState } from "react";
+import { useState } from "react";
+
+export default function Converter() {
   const [val, setVal] = useState("1");
   const [type, setType] = useState("m-ft");
 
@@ -438,34 +440,36 @@ function Converter() {
   })();
 
   return (
-    <div className="max-w-md mx-auto p-6 rounded-2xl shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
-      {/* Title */}
-      <h2 className="text-xl font-bold mb-4 text-center">🔄 Unit Converter</h2>
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
+        {/* Title */}
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">🔄 Unit Converter</h2>
 
-      {/* Input + Select */}
-      <div className="flex gap-2">
-        <input
-          className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400 transition"
-          value={val}
-          onChange={(e) => setVal(e.target.value)}
-          placeholder="Enter value..."
-        />
-        <select
-          value={type}
-          onChange={(e) => setType(e.target.value)}
-          className="p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow focus:outline-none focus:ring-2 focus:ring-indigo-400 transition"
-        >
-          <option value="m-ft">Meters → Feet</option>
-          <option value="ft-m">Feet → Meters</option>
-          <option value="c-f">Celsius → Fahrenheit</option>
-          <option value="f-c">Fahrenheit → Celsius</option>
-        </select>
-      </div>
+        {/* Input + Select */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-2">
+          <input
+            type="number"
+            value={val}
+            onChange={(e) => setVal(e.target.value)}
+            placeholder="Enter value..."
+            className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400 transition w-full"
+          />
+          <select
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+            className="p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow focus:outline-none focus:ring-2 focus:ring-indigo-400 transition w-full sm:w-auto"
+          >
+            <option value="m-ft">Meters → Feet</option>
+            <option value="ft-m">Feet → Meters</option>
+            <option value="c-f">Celsius → Fahrenheit</option>
+            <option value="f-c">Fahrenheit → Celsius</option>
+          </select>
+        </div>
 
-      {/* Result Box */}
-      <div className="mt-5 p-4 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-inner text-lg font-semibold text-center">
-        Result:{" "}
-        <span className="text-pink-600 dark:text-pink-400">{result}</span>
+        {/* Result Box */}
+        <div className="mt-6 p-4 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-inner text-lg sm:text-xl font-semibold text-center">
+          Result: <span className="text-pink-600 dark:text-pink-400">{result}</span>
+        </div>
       </div>
     </div>
   );
@@ -847,8 +851,9 @@ function QRCodeScanner() {
       </div>
     </div>
   );
-}
-function TodoList() {
+}import { useState } from "react";
+
+export default function TodoList() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
@@ -867,62 +872,62 @@ function TodoList() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 rounded-2xl shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
-      <h2 className="text-xl font-bold mb-4 text-center">
-        📦 To-Do List Manager
-      </h2>
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
+        {/* Title */}
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+          📦 To-Do List Manager
+        </h2>
 
-      {/* Input */}
-      <div className="flex gap-2">
-        <input
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-          placeholder="Enter a new task..."
-          className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 
-          text-gray-900 dark:text-gray-100 font-semibold shadow-inner 
-          focus:outline-none focus:ring-2 focus:ring-pink-400 transition"
-        />
-        <button
-          onClick={addTask}
-          className="px-4 py-2 rounded-xl bg-pink-600 hover:bg-pink-700 
-          text-white font-semibold shadow transition"
-        >
-          Add
-        </button>
-      </div>
-
-      {/* Task List */}
-      <ul className="mt-5 space-y-3">
-        {tasks.length === 0 && (
-          <li className="text-center text-gray-200">No tasks yet 👀</li>
-        )}
-        {tasks.map((t) => (
-          <li
-            key={t.id}
-            className="flex items-center justify-between p-3 rounded-xl 
-            bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 
-            shadow-md"
+        {/* Input */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-2">
+          <input
+            type="text"
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+            placeholder="Enter a new task..."
+            className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400 transition w-full"
+          />
+          <button
+            onClick={addTask}
+            className="px-4 py-3 sm:py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-semibold shadow transition w-full sm:w-auto"
           >
-            <span
-              onClick={() => toggleTask(t.id)}
-              className={`flex-1 cursor-pointer ${
-                t.done ? "line-through text-gray-400" : ""
-              }`}
+            Add
+          </button>
+        </div>
+
+        {/* Task List */}
+        <ul className="mt-6 space-y-3 max-h-96 overflow-y-auto">
+          {tasks.length === 0 && (
+            <li className="text-center text-gray-200">No tasks yet 👀</li>
+          )}
+          {tasks.map((t) => (
+            <li
+              key={t.id}
+              className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-md transition"
             >
-              {t.text}
-            </span>
-            <button
-              onClick={() => deleteTask(t.id)}
-              className="ml-3 px-3 py-1 rounded-lg bg-red-500 hover:bg-red-600 text-white text-sm"
-            >
-              ✖
-            </button>
-          </li>
-        ))}
-      </ul>
+              <span
+                onClick={() => toggleTask(t.id)}
+                className={`flex-1 cursor-pointer ${
+                  t.done ? "line-through text-gray-400" : ""
+                }`}
+              >
+                {t.text}
+              </span>
+              <button
+                onClick={() => deleteTask(t.id)}
+                className="mt-2 sm:mt-0 ml-0 sm:ml-3 px-3 py-1 rounded-lg bg-red-500 hover:bg-red-600 text-white text-sm transition"
+              >
+                ✖
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
+
 function Compass() {
   const [angle, setAngle] = useState(0);
 
@@ -1021,8 +1026,7 @@ function Weather() {
       </button>
     </div>
   );
-}
-function FileSizeConverter() {
+}function FileSizeConverter() {
   const [value, setValue] = useState("1024");
   const [unitFrom, setUnitFrom] = useState("B");
   const [unitTo, setUnitTo] = useState("KB");
@@ -1031,68 +1035,65 @@ function FileSizeConverter() {
 
   const calculate = () => {
     let bytes = parseFloat(value) || 0;
-
-    // Convert from original unit to bytes
     if (unitFrom === "KB") bytes *= 1024;
     if (unitFrom === "MB") bytes *= 1024 ** 2;
     if (unitFrom === "GB") bytes *= 1024 ** 3;
-
-    // Convert bytes to target unit
     let result = bytes;
     if (unitTo === "KB") result /= 1024;
     if (unitTo === "MB") result /= 1024 ** 2;
     if (unitTo === "GB") result /= 1024 ** 3;
-
     return result.toFixed(4);
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 rounded-2xl shadow-xl bg-gradient-to-r from-green-400 via-teal-500 to-blue-500 text-white">
-      <h2 className="text-xl font-bold mb-4 text-center">
-        📁 File Size Converter
-      </h2>
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-green-400 via-teal-500 to-blue-500">
+      <div className="w-full max-w-md p-6 rounded-2xl shadow-xl bg-white/10 backdrop-blur-md text-white">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+          📁 File Size Converter
+        </h2>
 
-      <div className="flex gap-2 mb-4">
-        <input
-          type="number"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-white transition"
-        />
-        <select
-          value={unitFrom}
-          onChange={(e) => setUnitFrom(e.target.value)}
-          className="p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow focus:outline-none focus:ring-2 focus:ring-white transition"
-        >
-          {units.map((u) => (
-            <option key={u} value={u}>
-              {u}
-            </option>
-          ))}
-        </select>
-        <select
-          value={unitTo}
-          onChange={(e) => setUnitTo(e.target.value)}
-          className="p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow focus:outline-none focus:ring-2 focus:ring-white transition"
-        >
-          {units.map((u) => (
-            <option key={u} value={u}>
-              {u}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 mb-4">
+          <input
+            type="number"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-white transition w-full"
+            placeholder="Enter value..."
+          />
+          <select
+            value={unitFrom}
+            onChange={(e) => setUnitFrom(e.target.value)}
+            className="p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow focus:outline-none focus:ring-2 focus:ring-white transition w-full sm:w-auto"
+          >
+            {units.map((u) => (
+              <option key={u} value={u}>
+                {u}
+              </option>
+            ))}
+          </select>
+          <select
+            value={unitTo}
+            onChange={(e) => setUnitTo(e.target.value)}
+            className="p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow focus:outline-none focus:ring-2 focus:ring-white transition w-full sm:w-auto"
+          >
+            {units.map((u) => (
+              <option key={u} value={u}>
+                {u}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <div className="p-4 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-inner text-lg font-semibold text-center">
-        Result:{" "}
-        <span className="text-green-600 dark:text-green-400">
-          {calculate()}
-        </span>{" "}
-        {unitTo}
+        <div className="p-4 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-inner text-lg sm:text-xl font-semibold text-center">
+          Result:{" "}
+          <span className="text-green-600 dark:text-green-400">{calculate()}</span>{" "}
+          {unitTo}
+        </div>
       </div>
     </div>
   );
 }
+
 function ColorPicker() {
   const [color, setColor] = useState("#ff0000");
 
@@ -1442,7 +1443,6 @@ function DistanceCalculator() {
     </div>
   );
 }
-
 function CurrencyConverter() {
   const [amount, setAmount] = useState(1);
   const [from, setFrom] = useState("USD");
@@ -1463,46 +1463,48 @@ function CurrencyConverter() {
   };
 
   const result = (amount * (rates[from]?.[to] || 0)).toFixed(2);
-
   const currencies = Object.keys(rates);
 
   return (
-    <div className="max-w-md mx-auto p-6 rounded-2xl shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
-      <h2 className="text-xl font-bold mb-4 text-center">💱 Currency Converter</h2>
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">💱 Currency Converter</h2>
 
-      <div className="flex gap-2 mb-4">
-        <input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(Number(e.target.value))}
-          className="flex-1 p-3 rounded-xl text-gray-900 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-yellow-400"
-        />
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 mb-4">
+          <input
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(Number(e.target.value))}
+            className="flex-1 p-3 rounded-xl text-gray-900 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-yellow-400 w-full"
+            placeholder="Amount"
+          />
 
-        <select
-          value={from}
-          onChange={(e) => setFrom(e.target.value)}
-          className="p-3 rounded-xl text-gray-900 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400"
-        >
-          {currencies.map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
+          <select
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+            className="p-3 rounded-xl text-gray-900 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400 w-full sm:w-auto"
+          >
+            {currencies.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
 
-        <span className="self-center text-lg font-bold">→</span>
+          <span className="self-center text-lg font-bold text-center">→</span>
 
-        <select
-          value={to}
-          onChange={(e) => setTo(e.target.value)}
-          className="p-3 rounded-xl text-gray-900 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400"
-        >
-          {currencies.map((c) => (
-            <option key={c} value={c}>{c}</option>
-          ))}
-        </select>
-      </div>
+          <select
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+            className="p-3 rounded-xl text-gray-900 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400 w-full sm:w-auto"
+          >
+            {currencies.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </div>
 
-      <div className="text-center text-lg font-semibold bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-white p-4 rounded-xl shadow-inner">
-        Result: {result} {to}
+        <div className="text-center text-lg sm:text-xl font-semibold bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-white p-4 rounded-xl shadow-inner">
+          Result: {result} {to}
+        </div>
       </div>
     </div>
   );
