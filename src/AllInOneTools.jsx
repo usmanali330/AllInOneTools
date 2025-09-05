@@ -423,12 +423,9 @@ function Notepad() {
       </div>
     </div>
   );
-}import { useState } from "react";
-import { useState } from "react";
-
-export default function Converter() {
-  const [val, setVal] = useState("1");
-  const [type, setType] = useState("m-ft");
+}function Converter() {
+  const [val, setVal] = React.useState("1");
+  const [type, setType] = React.useState("m-ft");
 
   const n = parseFloat(val) || 0;
   const result = (() => {
@@ -440,12 +437,12 @@ export default function Converter() {
   })();
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
-        {/* Title */}
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">🔄 Unit Converter</h2>
+    <div className="w-full p-4">
+      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white mx-auto">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+          🔄 Unit Converter
+        </h2>
 
-        {/* Input + Select */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-2">
           <input
             type="number"
@@ -466,7 +463,6 @@ export default function Converter() {
           </select>
         </div>
 
-        {/* Result Box */}
         <div className="mt-6 p-4 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-inner text-lg sm:text-xl font-semibold text-center">
           Result: <span className="text-pink-600 dark:text-pink-400">{result}</span>
         </div>
@@ -474,6 +470,7 @@ export default function Converter() {
     </div>
   );
 }
+
 
 function Flashlight() {
   const [on, setOn] = useState(false);
@@ -851,11 +848,9 @@ function QRCodeScanner() {
       </div>
     </div>
   );
-}import { useState } from "react";
-
-export default function TodoList() {
-  const [task, setTask] = useState("");
-  const [tasks, setTasks] = useState([]);
+}function TodoList() {
+  const [task, setTask] = React.useState("");
+  const [tasks, setTasks] = React.useState([]);
 
   const addTask = () => {
     if (!task.trim()) return;
@@ -872,61 +867,52 @@ export default function TodoList() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
-        {/* Title */}
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
-          📦 To-Do List Manager
-        </h2>
+    <div className="max-w-md mx-auto p-6 rounded-2xl shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
+      <h2 className="text-xl font-bold mb-4 text-center">📦 To-Do List Manager</h2>
 
-        {/* Input */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-2">
-          <input
-            type="text"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-            placeholder="Enter a new task..."
-            className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400 transition w-full"
-          />
-          <button
-            onClick={addTask}
-            className="px-4 py-3 sm:py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-semibold shadow transition w-full sm:w-auto"
-          >
-            Add
-          </button>
-        </div>
-
-        {/* Task List */}
-        <ul className="mt-6 space-y-3 max-h-96 overflow-y-auto">
-          {tasks.length === 0 && (
-            <li className="text-center text-gray-200">No tasks yet 👀</li>
-          )}
-          {tasks.map((t) => (
-            <li
-              key={t.id}
-              className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-md transition"
-            >
-              <span
-                onClick={() => toggleTask(t.id)}
-                className={`flex-1 cursor-pointer ${
-                  t.done ? "line-through text-gray-400" : ""
-                }`}
-              >
-                {t.text}
-              </span>
-              <button
-                onClick={() => deleteTask(t.id)}
-                className="mt-2 sm:mt-0 ml-0 sm:ml-3 px-3 py-1 rounded-lg bg-red-500 hover:bg-red-600 text-white text-sm transition"
-              >
-                ✖
-              </button>
-            </li>
-          ))}
-        </ul>
+      <div className="flex gap-2">
+        <input
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          placeholder="Enter a new task..."
+          className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400 transition"
+        />
+        <button
+          onClick={addTask}
+          className="px-4 py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-semibold shadow transition"
+        >
+          Add
+        </button>
       </div>
+
+      <ul className="mt-5 space-y-3">
+        {tasks.length === 0 && (
+          <li className="text-center text-gray-200">No tasks yet 👀</li>
+        )}
+        {tasks.map((t) => (
+          <li
+            key={t.id}
+            className="flex items-center justify-between p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-md"
+          >
+            <span
+              onClick={() => toggleTask(t.id)}
+              className={`flex-1 cursor-pointer ${t.done ? "line-through text-gray-400" : ""}`}
+            >
+              {t.text}
+            </span>
+            <button
+              onClick={() => deleteTask(t.id)}
+              className="ml-3 px-3 py-1 rounded-lg bg-red-500 hover:bg-red-600 text-white text-sm"
+            >
+              ✖
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
+
 
 function Compass() {
   const [angle, setAngle] = useState(0);
