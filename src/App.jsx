@@ -1,18 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import AllInOneTools from './allinone'
+import Card from "./servises-card";
+import Form from "./forms";
+import UsmanPortfolio from "./UsmanPortfolio";
+import Weather from "./weather-Cards";
+import WeatherForecast from "./WeatherForecast";
+import Game from "./Tic-Tac-Toe"; 
+import TicTacToe from "./Tic-Tac-Toe";
+import Clock1 from "./clock";
+import Counter from "./counter1";
+import AllInOneTools from "./AllInOneTools.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
+function App(){
+  return(
     <>
-      <h2>usmanlai</h2>
-      <AllInOneTools/>
+     <AllInOneTools/>
+      <Card />
+      <Weather />
+      <WeatherForecast />
+      <Clock1/>
+      <Counter/>
+      <Form/>
+      <UsmanPortfolio />
+      <TicTacToe/>
+      
+     
+     
     </>
   )
 }
-
 export default App;

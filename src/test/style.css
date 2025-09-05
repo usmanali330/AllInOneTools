@@ -1,0 +1,198 @@
+/* From Uiverse.io by gharsh11032000 */ 
+.button {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 128px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.button::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.button:hover::after {
+  filter: blur(30px);
+}
+
+.button:hover::before {
+  transform: rotate(-180deg);
+}
+
+.button:active::before {
+  scale: 0.7;
+}
+
+.div{
+width: 100px;
+height: 100px;
+  border: 2px solid black;
+margin: 40px;
+background:linear-gradient(-45deg, #777178 0%, #070707 100% ) ;
+}footer {
+  background: linear-gradient(rgba(10, 18, 15, 0.95), rgba(10, 18, 15, 0.95)), url('../images/bg/footer1-bg.png') center/cover no-repeat;
+  color: #eee;
+  font-family: 'Poppins', sans-serif;
+  padding: 60px 0 20px;
+}
+
+.footer-top .footer-item {
+  margin-bottom: 30px;
+}
+
+.footer-item h5 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #00caeb;
+}
+
+.footer-item p {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-item a {
+  color: #ccc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-item a:hover {
+  color: #00caeb;
+  text-decoration: underline;
+}
+
+.footer-list,
+.address-list,
+.footer-social,
+.f-bottom-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li,
+.address-list li,
+.f-bottom-list li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.address-list svg {
+  fill: #00caeb;
+  flex-shrink: 0;
+}
+
+.input-with-btn {
+  margin-top: 15px;
+}
+
+.input-with-btn input[type="text"] {
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 4px 0 0 4px;
+  flex: 1;
+}
+
+.input-with-btn button {
+  background-color: #00caeb;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.input-with-btn button:hover {
+  background-color: #00b4d8;
+}
+
+.footer-social {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-social li {
+  margin-right: 12px;
+}
+
+.footer-social a {
+  font-size: 1.3rem;
+  color: #00caeb;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+}
+
+.footer-bottom a {
+  color: #00caeb;
+  margin: 0 10px;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .footer-item {
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .f-bottom-list {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
