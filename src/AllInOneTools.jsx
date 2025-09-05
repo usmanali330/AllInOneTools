@@ -867,48 +867,52 @@ function QRCodeScanner() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 rounded-2xl shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
-      <h2 className="text-xl font-bold mb-4 text-center">📦 To-Do List Manager</h2>
+    <div className="flex flex-col items-center justify-start p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
+        <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center">📦 To-Do List Manager</h2>
 
-      <div className="flex gap-2">
-        <input
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-          placeholder="Enter a new task..."
-          className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400 transition"
-        />
-        <button
-          onClick={addTask}
-          className="px-4 py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-semibold shadow transition"
-        >
-          Add
-        </button>
-      </div>
-
-      <ul className="mt-5 space-y-3">
-        {tasks.length === 0 && (
-          <li className="text-center text-gray-200">No tasks yet 👀</li>
-        )}
-        {tasks.map((t) => (
-          <li
-            key={t.id}
-            className="flex items-center justify-between p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-md"
+        <div className="flex flex-col sm:flex-row gap-2">
+          <input
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+            placeholder="Enter a new task..."
+            className="flex-1 p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 font-semibold shadow-inner focus:outline-none focus:ring-2 focus:ring-pink-400 transition w-full"
+          />
+          <button
+            onClick={addTask}
+            className="px-4 py-3 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-semibold shadow transition w-full sm:w-auto"
           >
-            <span
-              onClick={() => toggleTask(t.id)}
-              className={`flex-1 cursor-pointer ${t.done ? "line-through text-gray-400" : ""}`}
+            Add
+          </button>
+        </div>
+
+        <ul className="mt-5 space-y-3 max-h-96 overflow-y-auto">
+          {tasks.length === 0 && (
+            <li className="text-center text-gray-200">No tasks yet 👀</li>
+          )}
+          {tasks.map((t) => (
+            <li
+              key={t.id}
+              className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-xl bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-gray-100 shadow-md"
             >
-              {t.text}
-            </span>
-            <button
-              onClick={() => deleteTask(t.id)}
-              className="ml-3 px-3 py-1 rounded-lg bg-red-500 hover:bg-red-600 text-white text-sm"
-            >
-              ✖
-            </button>
-          </li>
-        ))}
-      </ul>
+              <span
+                onClick={() => toggleTask(t.id)}
+                className={`flex-1 cursor-pointer break-words ${
+                  t.done ? "line-through text-gray-400" : ""
+                }`}
+              >
+                {t.text}
+              </span>
+              <button
+                onClick={() => deleteTask(t.id)}
+                className="mt-2 sm:mt-0 sm:ml-3 px-3 py-1 rounded-lg bg-red-500 hover:bg-red-600 text-white text-sm"
+              >
+                ✖
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
@@ -1013,9 +1017,9 @@ function Weather() {
     </div>
   );
 }function FileSizeConverter() {
-  const [value, setValue] = useState("1024");
-  const [unitFrom, setUnitFrom] = useState("B");
-  const [unitTo, setUnitTo] = useState("KB");
+  const [value, setValue] = React.useState("1024");
+  const [unitFrom, setUnitFrom] = React.useState("B");
+  const [unitTo, setUnitTo] = React.useState("KB");
 
   const units = ["B", "KB", "MB", "GB"];
 
@@ -1032,7 +1036,7 @@ function Weather() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-green-400 via-teal-500 to-blue-500">
+    <div className="flex items-center justify-center p-4 bg-gradient-to-r from-green-400 via-teal-500 to-blue-500 min-h-[100px]">
       <div className="w-full max-w-md p-6 rounded-2xl shadow-xl bg-white/10 backdrop-blur-md text-white">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
           📁 File Size Converter
@@ -1428,11 +1432,10 @@ function DistanceCalculator() {
       )}
     </div>
   );
-}
-function CurrencyConverter() {
-  const [amount, setAmount] = useState(1);
-  const [from, setFrom] = useState("USD");
-  const [to, setTo] = useState("PKR");
+}function CurrencyConverter() {
+  const [amount, setAmount] = React.useState(1);
+  const [from, setFrom] = React.useState("USD");
+  const [to, setTo] = React.useState("PKR");
 
   const rates = {
     USD: { USD: 1, PKR: 285, SAR: 3.75, EUR: 0.92, GBP: 0.81, INR: 83, AED: 3.67, CNY: 7.1, JPY: 150, AUD: 1.65, CAD: 1.35 },
@@ -1452,7 +1455,7 @@ function CurrencyConverter() {
   const currencies = Object.keys(rates);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <div className="flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-[100px]">
       <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">💱 Currency Converter</h2>
 
@@ -1495,4 +1498,3 @@ function CurrencyConverter() {
     </div>
   );
 }
-
