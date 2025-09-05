@@ -56,7 +56,7 @@ export default function AllInOneTools() {
           <div className="w-20 h-20 bg-gray-800  sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border-2 border-white/30">
             <img
               className="w-full h-full object-cover"
-              src="src/images/logo.png"
+              src="images/logo.png"
               alt="Logo"
             />
           </div>
