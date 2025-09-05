@@ -14,14 +14,7 @@ function App(){
   return(
     <>
      <AllInOneTools/>
-      <Card />
-      <Weather />
-      <WeatherForecast />
-      <Clock1/>
-      <Counter/>
-      <Form/>
-      <UsmanPortfolio />
-      <TicTacToe/>
+      
       
      
      
