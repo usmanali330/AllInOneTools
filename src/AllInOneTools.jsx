@@ -867,8 +867,8 @@ function QRCodeScanner() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
+    <div className="flex flex-col items-center justify-start p-4 ">
+      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-white/10 backdrop-blur-md text-white">
         <h2 className="text-xl sm:text-2xl font-bold mb-4 text-center">📦 To-Do List Manager</h2>
 
         <div className="flex flex-col sm:flex-row gap-2">
@@ -1036,8 +1036,8 @@ function Weather() {
   };
 
   return (
-    <div className="flex items-center justify-center p-4 bg-gradient-to-r from-green-400 via-teal-500 to-blue-500 min-h-[100px]">
-      <div className="w-full max-w-md p-6 rounded-2xl shadow-xl bg-white/10 backdrop-blur-md text-white">
+    <div className="flex items-center justify-center p-4 min-h-[100px]">
+      <div className="w-full max-w-md p-6 rounded-2xl shadow-xl  bg-gradient-to-r from-green-400 via-teal-500 to-blue-500 bg-white/10 backdrop-blur-md text-white">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
           📁 File Size Converter
         </h2>
@@ -1455,8 +1455,8 @@ function DistanceCalculator() {
   const currencies = Object.keys(rates);
 
   return (
-    <div className="flex items-center justify-center p-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-[100px]">
-      <div className="w-full max-w-md p-6 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
+    <div className="flex items-center justify-center p-4  min-h-[100px]">
+      <div className="w-full max-w-md p-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl shadow-lg bg-white/10 backdrop-blur-md text-white">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">💱 Currency Converter</h2>
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 mb-4">
