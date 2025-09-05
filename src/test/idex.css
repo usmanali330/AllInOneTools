@@ -3,7 +3,7 @@
     width: 100%;
     height: 100%;
     border: 1px solid black;
-    background-image: url('/vite.svg');
+background-image: url('/logo.svg');
     background-size: cover; /* optional, makes it fit */
     background-repeat: no-repeat; /* optional, prevents tiling */
     background-position: center; /* optional, centers the image */
